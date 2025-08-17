@@ -109,10 +109,10 @@ def ai_with_history():
 # ----------------- Load model & vectorizer -------------------
 @st.cache_resource
 def load_model():
-    if not os.path.exists("model.pkl"):
+    if not os.path.exists("tfidf_vectorizer.pkl"):
         st.error("Model file not found. Please place model.pkl in the same folder.")
         st.stop()
-    return joblib.load("model.pkl")
+    return joblib.load("tfidf_vectorizer.pkl")
 
 
 @st.cache_resource
