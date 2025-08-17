@@ -51,7 +51,7 @@ st.markdown(
 # ----------------- Download model -------------------
 @st.cache_data
 def download_model():
-    filename = "voting_model.pkl"
+    filename = "tfidf_vectorizer.pkl"
     return filename
 
 
