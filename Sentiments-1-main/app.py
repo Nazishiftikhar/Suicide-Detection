@@ -109,24 +109,19 @@ def ai_with_history():
 # ----------------- Load model & vectorizer -------------------
 @st.cache_resource
 def load_model():
-
-    model_path = download_model()
-    return joblib.load(model_path)
-
-
-model = load_model()
+    if not os.path.exists("model.pkl"):
+        st.error("Model file not found. Please place model.pkl in the same folder.")
+        st.stop()
+    return joblib.load("model.pkl")
 
 
 @st.cache_resource
 def load_vectorizer():
-
     if not os.path.exists("tfidf_vectorizer.pkl"):
-        st.error("TF-IDF vectorizer file not found. Please upload it.")
+        st.error("TF-IDF vectorizer file not found. Please place tfidf_vectorizer.pkl in the same folder.")
         st.stop()
     return joblib.load("tfidf_vectorizer.pkl")
 
-
-vectorizer = load_vectorizer()
 
 # ----------------- Top Navigation Menu -------------------
 selected = option_menu(
