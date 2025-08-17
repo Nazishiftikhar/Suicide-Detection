@@ -51,9 +51,8 @@ st.markdown(
 # ----------------- Download model -------------------
 @st.cache_data
 def download_model():
-    filename = "tfidf_vectorizer.pkl"
+    filename = os.path.join(os.path.dirname(__file__), "tfidf_vectorizer.pkl")
     return filename
-
 
 # ----------------- Email Function -------------------
 def send_email_alert(subject, body, to_emails, from_email=None):
